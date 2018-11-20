@@ -5,7 +5,7 @@ import 'moment-holiday'
 import Timer from './Timer'
 import Controls from './controls'
 import Datepicker from './Datepicker'
-import HolidaysModal from './HolidaysModal'
+// import HolidaysModal from './HolidaysModal'
 
 
 class Countdown extends Component{
@@ -13,7 +13,7 @@ class Countdown extends Component{
         currentDate: moment(),
         nextDate: moment({year: moment().year() + 1}),
         paused: false,
-        showHolidays: false,
+        // showHolidays: false,
     }
 
 
@@ -67,23 +67,23 @@ handleDateReset = nextDate => {
     })
 }
 
-handleHolidaysToggle = () => {
-    this.setState ({
-        showHolidays: !this.state.showHolidays
-    })
-}
+// handleHolidaysToggle = () => {
+//     this.setState ({
+//         showHolidays: !this.state.showHolidays
+//     })
+// }
 
-getHolidays() {
-    const {currentDate, nextDate} = this.state
+// getHolidays() {
+//     const {currentDate, nextDate} = this.state
     
-    return currentDate.holidaysBetween(nextDate)
-}
+//     return currentDate.holidaysBetween(nextDate)
+// }
 
 render() {
 
-    const { paused , nextDate , showHolidays} = this.state,
-        duration = this.getRemainingTime(),
-        holidays = this.getHolidays()
+    const { paused , nextDate } = this.state,
+        duration = this.getRemainingTime();
+        // holidays = this.getHolidays()
 
     return <section className="hero is-info is-bold is-fullheight has-text-centered">
         <div className="hero-body">
@@ -91,12 +91,12 @@ render() {
                 <h1 className="title">
                 {nextDate.calendar()} is Coming Up!
 
-                <button 
+                {/* <button 
                     className= "button is-small is-rounded is-light" 
                     style={{margin: '5px 0 0 10px'}}
                     onClick= {this.handleHolidaysToggle}>
                         Holidays
-                </button>
+                </button> */}
                 </h1>
                 <section className="section">
                     <Timer duration={duration} />
@@ -106,10 +106,10 @@ render() {
 
                 <Controls paused={paused} onPausedToggle={this.handlePausedToggle} />
 
-                <HolidaysModal 
+                {/* <HolidaysModal 
                     holidays={holidays}
                     active={showHolidays} 
-                    onHolidaysToggle={this.handleHolidaysToggle}/>
+                    onHolidaysToggle={this.handleHolidaysToggle}/> */}
             </div>
         </div>
     </section>
