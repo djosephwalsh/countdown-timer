@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import moment from 'moment'
-import 'moment-holiday'
-
 import Timer from './Timer'
 import Controls from './controls'
 import Datepicker from './Datepicker'
